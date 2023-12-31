@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="controle.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="commande.php" method="post" name="f2">
+      <fieldset>
+        <legend>Commande de pizzas</legend>
+        <label for="type_de_pizza">type de pizza</label>
+        <select name="pizza" id="pizza">
+          <option value="">choisir une Pizza :</option>
+          <option value="">Fruits de mer</option>
+          <option value="">Margherita</option>
+          <option value="">Napolitatione</option>
+          <option value="">Neptune</option>
+          <option value="">Royale</option>
+        </select>
+        <label for="quantité">Quantité</label>
+        <input
+          type="number"
+          min="1"
+          max="5"
+          name="quantity"
+          id="quantity"
+        /><br /><br />
+        <label for="tel">Tel:</label>
+        <input type="tel" name="tel" id="tel" />
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" name="mdp" id="motdepasse" /><br /><br />
+        <input type="reset" value="Annuler" onclick="annuler()" />
+        <input type="button" value="Commander" onclick="verif2()" />
+      </fieldset>
+    </form>
+  </body>
+</html>
