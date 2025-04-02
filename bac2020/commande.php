@@ -1,21 +1,30 @@
 <?php
-$pizza=$_POST["pizza"];
-$quantity=$_POST["quantity"];
+require("config.php");
 $tel=$_POST["tel"];
-$motdepasse=$_POST["motdepasse"];
-mysql_connect("localhost","root","");
-mysql_select_db("bdbac2020") or die( "Erreur de selection de la base de donnees.");
-$req="SELECT*FROM commande where tel='$tel' and motdepasse='$motdepasse'";
-$res=mysql_query($req);
-if (mysql_num_rows($req)==0)
-   echo "N° Tél ou mot de passe erroné !";
-else{
-    $req1="INSERT INTO commande VALUES ('$tel, '$pizza','$quantity','$motdepasse')";
-    $res1=mysql_query($req1);
-    if(mysql_affected_rows()==1){
-        echo "Opération réussie";
+$mdp=$_POST["mdp"];
+$quantity=$_POST["quantity"];
+$pizza=$_POST["pizza"];
+$sql="SELECT * from Client where Tel='$tel' and MotPass='$mdp' ";
+$res=mysqli_query($conn,$sql);
+if (mysqli_num_rows($res)!=0){
+    echo ("<h1>N° Tél ou mot de passe erroné !</h1>");
+    
+}else{
+    $d= date("Y/m/d") ;
+    $sql="INSERT into commande(IdPizza,Tel,DateCmd,QteCmd) values('$pizza',$tel,'$d','$quantity');";
+    $res=mysqli_query($conn,$sql);
+    if (mysqli_affected_rows($conn)>0){
+        echo ("<h1> Opération réussie</h1>");
     }
+
 }
+
+
+
+
+
+
+
 
 
 ?>
