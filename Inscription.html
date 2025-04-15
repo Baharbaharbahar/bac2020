@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="Biblio.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="Inscription.php" method="post" onsubmit="return Verif1()">
+        <fieldset>
+            <legend>Inscription d'un client</legend>
+            <p>Nom : <input type="text" name="nom" id="nom"></p>
+            <p>Prenom : <input type="text" name="prenom" id="prenom"></p>
+            <p>Tel : <input type="text" name="tel" id="tel"></p>
+            <p>Adresse : <textarea name="adresse" id="adresse"></textarea></p>
+            <hr>
+            <p>Mot de passe : <input type="text" name="mdp" id="mdp"></p>
+            <p>Confirmation du mot de passe <input type="text" name="cmdp" id="cmdp"> </p>
+            <p><input type="reset" value="Annuler"> <input type="submit" value="Valider"></p>
+
+        </fieldset>
+    </form>
+</body>
+</html>
